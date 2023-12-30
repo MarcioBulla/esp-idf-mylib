@@ -15,6 +15,10 @@
 #define END_MENU_FUNCTION end_menuFunction()
 #define SET_QUICK_FUNCTION setQuick_menuFunction()
 
+extern TaskHandle_t Menu_function; // Handle to exec function
+extern SemaphoreHandle_t
+    Menu_mutex; // Handle to semaphore open when stay into function
+
 /**
  * Type with  possibles of action in menu system.
  *
@@ -80,7 +84,7 @@ typedef struct {
  *
  * @param params The struct that there are args.
  */
-void menu_init(void *params);
+void menu_init(void *args);
 
 /**
  * @brief Use this function all option menus when finish
